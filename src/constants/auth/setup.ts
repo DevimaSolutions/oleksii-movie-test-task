@@ -22,7 +22,10 @@ const createAuthOptions = () => {
     signIn: (signInParams, manager) => manager.axios.post('/auth/sign-in', signInParams),
     signOut: () => Promise.resolve(),
     refreshToken: (manager) =>
-      manager.axios.post('/auth/refresh', { refreshToken: manager.getRefreshToken() }),
+      manager.axios.post('/auth/refresh', {
+        refreshToken: manager.getRefreshToken(),
+        rememberMe: manager.getAuthData().user?.rememberMe ?? true,
+      }),
     getUser: (manager) => manager.axios.get('/auth/profile'),
   };
 

@@ -17,11 +17,11 @@ const handleShowToast = (e: unknown, options?: IHandleThunkApiErrorOptions) => {
   if (axios.isAxiosError(e)) {
     const data = e?.response?.data as IErrorResponse;
     if (data?.message) {
-      toast.error(data.message);
+      toast.error(data.message, { toastId: 'axios-error' });
     }
   }
   if (e instanceof Error && e.message) {
-    toast.error(e.message);
+    toast.error(e.message, { toastId: 'error' });
   }
 };
 

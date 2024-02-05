@@ -10,4 +10,5 @@ export interface IAuthContext {
 export interface ISignInParams {
   email: string;
   password: string;
+  rememberMe: boolean;
 }

@@ -1,7 +1,7 @@
 import Script from 'next/script';
 import { useMemo } from 'react';
 
-import { theme } from '@/constants';
+import { fonts, theme } from '@/constants';
 import { envUtil } from '@/utils';
 
 import type { IHtmlHeadProps } from './types';
@@ -79,6 +79,31 @@ const useHtmlHead = ({ title, rawTitle, base, style, link, meta, script }: IHtml
     if (script) {
       list.push(...script.map(({ id, ...props }) => <Script key={id} id={id} {...props} />));
     }
+    list.push(
+      ...fonts.map((font, idx) => (
+        <link
+          key={idx}
+          rel="preload"
+          href={font.font}
+          as="font"
+          crossOrigin=""
+          type={`font/${font.type}`}
+        />
+      )),
+    );
+    list.push(
+      ...fonts.map((font, idx) => (
+        <style key={idx}>
+          {`@font-face {
+              font-family: ${font.fontFamily};
+              font-style: ${font.fontStyle};
+              font-display: ${font.fontDisplay};
+              font-weight: ${font.fontWeight};
+               src: ${font.src};
+             }`}
+        </style>
+      )),
+    );
     return list;
   }, [renderTitle, base, composedMeta, composedLinks, style, script]);
 
