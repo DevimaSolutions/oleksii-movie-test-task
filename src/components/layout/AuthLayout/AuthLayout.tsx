@@ -1,4 +1,6 @@
-import { Grid } from '@mui/material';
+import { Box } from '@mui/material';
+
+import { FooterVectors } from '@/components';
 
 import styles from './styles';
 
@@ -6,11 +8,10 @@ import type { PropsWithChildren } from 'react';
 
 const AuthLayout = ({ children }: PropsWithChildren<{}>) => {
   return (
-    <Grid container sx={styles.container} alignItems="center">
-      <Grid item xs={12}>
-        {children}
-      </Grid>
-    </Grid>
+    <Box sx={styles.root}>
+      <Box sx={styles.contentWrapper}>{children}</Box>
+      <FooterVectors />
+    </Box>
   );
 };
 

@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { isSSR } from '@/utils';
 
 import authReducer from './authorization/slice';
+import moviesReducer from './movies/slice';
 
 import type { EnhancedStore } from '@reduxjs/toolkit';
 
@@ -14,6 +15,7 @@ const createStore = (preloadedState?: any) =>
   configureStore({
     reducer: {
       auth: authReducer,
+      movies: moviesReducer,
     },
     preloadedState,
   });

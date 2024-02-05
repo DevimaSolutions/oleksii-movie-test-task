@@ -9,6 +9,8 @@ import { AuthGate, HtmlHead, Layout, AuthProvider } from '@/components';
 import { theme, createEmotionCache } from '@/constants';
 import { initializeStore } from '@/redux/store';
 
+import 'react-toastify/dist/ReactToastify.css';
+
 import type { MyAppProps } from '@/types';
 
 function MyApp({ Component, pageProps, emotionCache }: MyAppProps) {

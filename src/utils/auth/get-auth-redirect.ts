@@ -1,5 +1,3 @@
-import { UserRole } from '@/constants';
-
 import type { IFullUserResponse } from '@/data-transfer/responses';
 
 const getAuthRedirect = (user?: IFullUserResponse | null) => {
@@ -8,11 +6,8 @@ const getAuthRedirect = (user?: IFullUserResponse | null) => {
   }
 
   // Handle additional redirects here
-  if (user.role === UserRole.Admin) {
-    return '/admin';
-  }
 
-  return '/';
+  return '/movies';
 };
 
 export default getAuthRedirect;

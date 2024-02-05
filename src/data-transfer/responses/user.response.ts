@@ -5,4 +5,5 @@ export interface IFullUserResponse {
   email: string;
   role: UserRole;
   imageUri?: string;
+  rememberMe: boolean;
 }

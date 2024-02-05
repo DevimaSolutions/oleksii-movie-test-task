@@ -11,7 +11,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 echo "Jump to app folder"
-cd /opt/tsp-frontend
+cd /opt/oleksii-movie-test-task-frontend
 
 echo "Setting NodeJS version to $(cat ./.nvmrc)"
 nvm use
