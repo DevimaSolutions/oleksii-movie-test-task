@@ -7,6 +7,7 @@ const styles = {
     width: 'inherit',
     height: 'inherit',
     flex: 1,
+    margin: 'auto 0px',
   },
   pagination: {
     display: 'flex',
@@ -23,7 +24,7 @@ const styles = {
     justifyContent: 'center',
     gap: theme.spacing(7),
     width: '100%',
-    height: '100%',
+    height: 'inherit',
     flex: 1,
   },
   movieListWrapper: {
