@@ -7,7 +7,7 @@ const getAuthRedirect = (user?: IFullUserResponse | null) => {
 
   // Handle additional redirects here
 
-  return '/movies';
+  return '/';
 };
 
 export default getAuthRedirect;

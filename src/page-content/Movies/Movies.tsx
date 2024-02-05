@@ -10,6 +10,7 @@ import useMovies from './useMovies';
 
 const Movies = () => {
   const {
+    isLoading,
     movies,
     pagesAmount,
     page,
@@ -20,6 +21,9 @@ const Movies = () => {
   } = useMovies();
 
   const content = useMemo(() => {
+    if (!movies.length && isLoading) {
+      return null;
+    }
     if (!movies.length) {
       return (
         <CenteredContainer>
@@ -93,6 +97,7 @@ const Movies = () => {
       </Box>
     );
   }, [
+    isLoading,
     movies,
     handleAddMovie,
     handleLogout,

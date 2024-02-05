@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 
 import { MovieForm, ContentHeader, CenteredContainer } from '@/components';
 
@@ -8,19 +8,12 @@ import useUpdateMovie from './useUpdateMovie';
 import type { IUpdateMovieProps } from './types';
 
 const UpdateMovie = ({ movieId }: IUpdateMovieProps) => {
-  const { movie, handleBack } = useUpdateMovie({ movieId });
+  const { movie } = useUpdateMovie({ movieId });
 
   return (
-    <Box>
+    <Box sx={styles.contentWrapper}>
       <CenteredContainer sx={styles.container}>
-        <ContentHeader
-          mainTitle={'Update movie'}
-          secondaryActionComponent={
-            <Typography sx={styles.backLabel} onClick={handleBack}>
-              Go back
-            </Typography>
-          }
-        />
+        <ContentHeader mainTitle={'Update movie'} />
       </CenteredContainer>
       <CenteredContainer sx={styles.container}>
         <MovieForm movie={movie} />

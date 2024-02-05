@@ -53,7 +53,13 @@ export default function SignInForm() {
           </Box>
           <Box sx={styles.signUpHelper}>
             <Typography variant="subtitle1">Dont have an account?</Typography>
-            <NextLinkButton sx={styles.textButton} href={'/sign-up'}>
+            <NextLinkButton
+              disableRipple
+              disableTouchRipple
+              disableFocusRipple
+              sx={styles.textButton}
+              href={'/sign-up'}
+            >
               Sign up
             </NextLinkButton>
           </Box>

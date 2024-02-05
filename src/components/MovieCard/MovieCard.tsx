@@ -20,8 +20,10 @@ const MovieCard = ({ title, publishYear, posterImageUri, sx, ...props }: IMovieC
         />
       </Box>
       <Box sx={styles.labelsWrapper}>
-        <Typography sx={styles.title}>{title}</Typography>
-        <Typography variant="subtitle1">{publishYear}</Typography>
+        <Typography sx={combineSx(styles.title, styles.overflowWrapper)}>{title}</Typography>
+        <Typography sx={styles.overflowWrapper} variant="subtitle1">
+          {publishYear}
+        </Typography>
       </Box>
     </Box>
   );

@@ -3,19 +3,35 @@ import { theme } from '@/constants';
 const styles = {
   root: {
     display: 'flex',
-    gap: '128px',
-    marginTop: theme.spacing(12),
-    flexDirection: 'row',
+    gap: '24px',
+    marginTop: theme.spacing(11),
     width: '100%',
     height: '100%',
+    flexDirection: 'column-reverse',
+    [theme.breakpoints.up('lg')]: {
+      marginTop: theme.spacing(12),
+      flexDirection: 'row',
+      gap: '128px',
+    },
   },
   form: {
-    width: '100%',
-    height: '100%',
+    width: 'inherit',
+    height: 'inherit',
   },
   dndWrapper: {
-    width: '473px',
-    height: '504px',
+    width: '100%',
+    height: '100%',
+    aspectRatio: '1 / 1',
+    [theme.breakpoints.up('lg')]: {
+      width: '473px',
+      height: '504px',
+    },
+  },
+  deleteButton: {
+    position: 'absolute',
+    top: '10px',
+    right: '10px',
+    color: theme.palette.common.white,
   },
   formWrapper: {},
   fieldsWrapper: {
@@ -33,8 +49,13 @@ const styles = {
   buttonsWrapper: {
     display: 'flex',
     flexDirection: 'row',
-    marginTop: theme.spacing(10),
     gap: theme.spacing(4),
+    marginTop: '0px',
+    marginBottom: '83px',
+    [theme.breakpoints.up('lg')]: {
+      marginTop: theme.spacing(10),
+      marginBottom: '0px',
+    },
   },
   imageContainer: {
     flexShrink: 0,
@@ -46,7 +67,11 @@ const styles = {
     },
   },
   button: {
-    width: '167px',
+    width: '100%',
+    marginTop: '16px',
+    [theme.breakpoints.up('lg')]: {
+      width: '167px',
+    },
   },
   numberField: {
     '& input[type=number]': {

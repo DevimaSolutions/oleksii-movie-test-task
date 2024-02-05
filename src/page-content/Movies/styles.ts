@@ -47,7 +47,7 @@ const styles = {
     maxWidth: '1440px',
     gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
     gap: '20px',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       gridTemplateColumns: 'repeat(auto-fill, minmax(282px, 1fr))',
       gap: '24px',
     },

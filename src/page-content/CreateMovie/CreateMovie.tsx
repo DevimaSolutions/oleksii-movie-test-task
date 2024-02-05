@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 
 import { MovieForm, CenteredContainer, ContentHeader } from '@/components';
 
@@ -6,18 +6,11 @@ import styles from './styles';
 import useCreateMovie from './useCreateMovie';
 
 const CreateMovie = () => {
-  const { handleBack } = useCreateMovie();
+  useCreateMovie();
   return (
-    <Box>
+    <Box sx={styles.contentWrapper}>
       <CenteredContainer sx={styles.container}>
-        <ContentHeader
-          mainTitle={'Create movie'}
-          secondaryActionComponent={
-            <Typography sx={styles.backLabel} onClick={handleBack}>
-              Go back
-            </Typography>
-          }
-        />
+        <ContentHeader mainTitle={'Create movie'} />
       </CenteredContainer>
       <CenteredContainer sx={styles.container}>
         <MovieForm movie={null} />

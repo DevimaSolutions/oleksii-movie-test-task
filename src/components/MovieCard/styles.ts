@@ -22,12 +22,23 @@ const styles = {
   labelsWrapper: {
     display: 'flex',
     flexDirection: 'column',
+    width: '100%',
+    boxSizing: 'border-box',
     gap: theme.spacing(3),
-    paddingLeft: theme.spacing(3),
+    padding: theme.spacing(4),
+    [theme.breakpoints.up('md')]: {
+      padding: '0px',
+      paddingLeft: theme.spacing(3),
+    },
   },
   title: {
     ...theme.typography.body1,
     fontWeight: 500,
+  },
+  overflowWrapper: {
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
   },
   imageWrapper: {
     position: 'relative',
