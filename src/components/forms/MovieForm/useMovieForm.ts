@@ -1,7 +1,9 @@
+import { useMediaQuery } from '@mui/material';
 import { useRouter } from 'next/router';
 import { useCallback, useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
 
+import { theme } from '@/constants';
 import { useDispatch } from '@/hooks';
 import { thunks as movieThunks } from '@/redux/movies';
 
@@ -12,6 +14,8 @@ import type { FormikHelpers } from 'formik';
 const useMovieForm = ({ movie }: IMovieFormProps) => {
   const dispatch = useDispatch();
   const router = useRouter();
+
+  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
@@ -40,7 +44,7 @@ const useMovieForm = ({ movie }: IMovieFormProps) => {
             }),
           ).unwrap();
           toast.success('Movie updated successfully', { toastId: 'updated-movie' });
-          router.push(`/movies`);
+          router.push('/');
         } else {
           await dispatch(
             movieThunks.createMovie({
@@ -48,7 +52,7 @@ const useMovieForm = ({ movie }: IMovieFormProps) => {
             }),
           ).unwrap();
           toast.success('Movie created successfully', { toastId: 'created-movie' });
-          router.push(`/movies`);
+          router.push('/');
         }
         setIsSubmitted(true);
       } catch (err: unknown) {
@@ -61,7 +65,7 @@ const useMovieForm = ({ movie }: IMovieFormProps) => {
   );
 
   const handleCancel = useCallback(() => {
-    router.push('/movies');
+    router.push('/');
   }, [router]);
 
   const handleRemoveUploadedFile = useCallback(
@@ -84,6 +88,7 @@ const useMovieForm = ({ movie }: IMovieFormProps) => {
   );
 
   return {
+    isMobile,
     isSubmitted,
     initialValues,
     handleSubmit,

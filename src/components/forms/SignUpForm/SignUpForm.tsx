@@ -52,7 +52,13 @@ export default function SignUpForm() {
           </Box>
           <Box sx={styles.signInHelper}>
             <Typography variant="subtitle1">Already have an account?</Typography>
-            <NextLinkButton sx={styles.textButton} href={'/sign-in'}>
+            <NextLinkButton
+              disableRipple
+              disableTouchRipple
+              disableFocusRipple
+              sx={styles.textButton}
+              href={'/sign-in'}
+            >
               Sign in
             </NextLinkButton>
           </Box>

@@ -11,7 +11,7 @@ const { appName } = envUtil.getEnv();
 const AppLogo = ({ fontSize = 'large', sx, ...props }: IconProps) => {
   return (
     <Icon {...props} sx={{ display: 'flex', position: 'relative', ...sx }} fontSize={fontSize}>
-      <Image src={logoSvg} fill alt={appName} />
+      <Image src={logoSvg} fill alt={appName} priority />
     </Icon>
   );
 };
