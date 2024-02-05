@@ -1,4 +1,5 @@
-import { Box, Button } from '@mui/material';
+import { Delete } from '@mui/icons-material';
+import { Box, Button, IconButton } from '@mui/material';
 import { Field, Form, Formik } from 'formik';
 import Image from 'next/image';
 
@@ -13,7 +14,14 @@ import useMovieForm from './useMovieForm';
 import type { IMovieFormProps } from './types';
 
 const MovieForm = ({ movie }: IMovieFormProps) => {
-  const { initialValues, handleSubmit } = useMovieForm({
+  const {
+    isMobile,
+    initialValues,
+    handleSubmit,
+    handleCancel,
+    handleRemoveUploadedFile,
+    handleRemoveExistingFile,
+  } = useMovieForm({
     movie,
   });
   return (
@@ -23,9 +31,25 @@ const MovieForm = ({ movie }: IMovieFormProps) => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      {({ values }) => (
+      {({ values, setFieldValue }) => (
         <Form style={styles.form}>
           <Box sx={styles.root}>
+            {isMobile && (
+              <Box sx={styles.buttonsWrapper}>
+                <Button
+                  sx={styles.button}
+                  variant="outlined"
+                  color="primary"
+                  type="button"
+                  onClick={handleCancel}
+                >
+                  Cancel
+                </Button>
+                <Button sx={styles.button} variant="contained" color="primary" type="submit">
+                  {!!values?.id ? 'Update' : 'Submit'}
+                </Button>
+              </Box>
+            )}
             <Box sx={styles.dndWrapper}>
               {!values.file?.length && !values.posterImageUri ? (
                 <Box sx={styles.imageContainer}>
@@ -47,13 +71,20 @@ const MovieForm = ({ movie }: IMovieFormProps) => {
                 <>
                   {!!values.file?.length && !values.posterImageUri && (
                     <Box sx={styles.imageContainer}>
-                      {/* <IconButton onClick={handleRemoveUploadedFile(setFieldValue)}>
-                          <Delete />
-                        </IconButton> */}
+                      <IconButton
+                        disableRipple
+                        disableTouchRipple
+                        disableFocusRipple
+                        sx={styles.deleteButton}
+                        onClick={handleRemoveUploadedFile(setFieldValue)}
+                      >
+                        <Delete />
+                      </IconButton>
                       <Image
                         src={formFileUrl(values.file[0])}
                         alt={values.file[0].name}
                         fill
+                        priority
                         style={{ objectFit: 'cover', objectPosition: 'center' }}
                       />
                     </Box>
@@ -64,16 +95,24 @@ const MovieForm = ({ movie }: IMovieFormProps) => {
                         src={values.posterImageUri}
                         alt={'Poster Image URL'}
                         fill
+                        priority
                         style={{ objectFit: 'cover', objectPosition: 'center' }}
                       />
-                      {/* <IconButton onClick={handleRemoveExistingFile(values, setFieldValue)}>
-                          <Delete />
-                        </IconButton> */}
+                      <IconButton
+                        disableRipple
+                        disableTouchRipple
+                        disableFocusRipple
+                        sx={styles.deleteButton}
+                        onClick={handleRemoveExistingFile(values, setFieldValue)}
+                      >
+                        <Delete />
+                      </IconButton>
                     </Box>
                   )}
                 </>
               )}
             </Box>
+
             <Box sx={styles.formWrapper}>
               <Box sx={styles.fieldsWrapper}>
                 <Field name="title" placeholder="Title" fullWidth component={TextInput} />
@@ -87,14 +126,22 @@ const MovieForm = ({ movie }: IMovieFormProps) => {
                   inputMode="numeric"
                 />
               </Box>
-              <Box sx={styles.buttonsWrapper}>
-                <Button sx={styles.button} variant="outlined" color="primary" type="reset">
-                  Reset
-                </Button>
-                <Button sx={styles.button} variant="contained" color="primary" type="submit">
-                  {!!values?.id ? 'Update' : 'Submit'}
-                </Button>
-              </Box>
+              {!isMobile && (
+                <Box sx={styles.buttonsWrapper}>
+                  <Button
+                    sx={styles.button}
+                    variant="outlined"
+                    color="primary"
+                    type="button"
+                    onClick={handleCancel}
+                  >
+                    Cancel
+                  </Button>
+                  <Button sx={styles.button} variant="contained" color="primary" type="submit">
+                    {!!values?.id ? 'Update' : 'Submit'}
+                  </Button>
+                </Box>
+              )}
             </Box>
           </Box>
         </Form>

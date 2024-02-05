@@ -6,6 +6,10 @@ const styles = {
     justifyContent: 'none',
     alignItems: 'center',
   },
+  contentWrapper: {
+    width: 'inherit',
+    height: 'inherit',
+  },
   backLabel: {
     ...theme.typography.body2,
     px: theme.spacing(3),
