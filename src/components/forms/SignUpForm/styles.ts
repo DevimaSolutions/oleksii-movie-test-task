@@ -4,8 +4,9 @@ const styles = {
   root: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
     width: '300px',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   title: {
     width: '100%',
@@ -16,6 +17,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     gap: theme.spacing(5),
+    width: '300px',
   },
   signInHelper: {
     marginTop: theme.spacing(3),

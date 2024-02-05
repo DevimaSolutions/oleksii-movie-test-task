@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { getMovies, createMovie, updateMovie, deleteMovie, getMovie } from './thunks';
+import { getMovies, createMovie, updateMovie, getMovie } from './thunks';
 
 import type IMoviesState from './types';
 

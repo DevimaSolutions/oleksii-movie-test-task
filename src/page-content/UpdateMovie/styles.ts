@@ -1,7 +1,6 @@
 import { theme } from '@/constants';
 
 const styles = {
-  root: {},
   container: {
     height: 'auto',
     justifyContent: 'none',

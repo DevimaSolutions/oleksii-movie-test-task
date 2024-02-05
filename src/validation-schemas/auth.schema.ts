@@ -13,7 +13,7 @@ export const passwordSchema: SchemaOf<IPasswordType> = object()
       .min(textConstants.minPasswordSize)
       .max(textConstants.maxPasswordSize)
       .matches(PASSWORD_REGEX, passwordHelperText)
-      .required(),
+      .required('Password is required'),
   });
 
 export const emailSchema: SchemaOf<IEmailType> = object()
@@ -23,11 +23,11 @@ export const emailSchema: SchemaOf<IEmailType> = object()
       .trim()
       .email('Make sure that email address is correct.')
       .max(textConstants.maxStringSize)
-      .required(),
+      .required('Email is required'),
   });
 
 export const confirmPasswordSchema: SchemaOf<IConfirmPasswordType> = passwordSchema.shape({
   confirmPassword: string()
     .oneOf([ref('password'), null], 'Passwords does not match')
-    .required(),
+    .required('Confirm password is required'),
 });
