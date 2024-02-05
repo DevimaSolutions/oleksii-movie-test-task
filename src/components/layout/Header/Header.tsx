@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <AppBar position="static" sx={styles.appBar}>
       <Toolbar>
-        <NextLinkIconButton href="/">
+        <NextLinkIconButton href="/movies">
           <AppLogo />
         </NextLinkIconButton>
         <AuthPopup />

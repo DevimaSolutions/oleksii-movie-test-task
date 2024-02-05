@@ -1,0 +1,38 @@
+export const fonts = [
+  {
+    fontFamily: 'Montserrat',
+    fontStyle: 'normal',
+    fontDisplay: 'swap',
+    fontWeight: 400,
+    src: `local('Montserrat'), local('Montserrat'), url(/fonts/Montserrat-Regular.ttf) format('opentype')`,
+    font: '/fonts/Montserrat-Regular.ttf',
+    type: 'opentype',
+  },
+  {
+    fontFamily: 'Montserrat',
+    fontStyle: 'normal',
+    fontDisplay: 'swap',
+    fontWeight: 500,
+    src: `local('Montserrat'), local('Montserrat'), url(/fonts/Montserrat-Medium.ttf) format('opentype')`,
+    font: '/fonts/Montserrat-Medium.ttf',
+    type: 'opentype',
+  },
+  {
+    fontFamily: 'Montserrat',
+    fontStyle: 'normal',
+    fontDisplay: 'swap',
+    fontWeight: 600,
+    src: `local('Montserrat'), local('Montserrat'), url(/fonts/Montserrat-SemiBold.ttf) format('opentype')`,
+    font: '/fonts/Montserrat-SemiBold.ttf',
+    type: 'opentype',
+  },
+  {
+    fontFamily: 'Montserrat',
+    fontStyle: 'normal',
+    fontDisplay: 'swap',
+    fontWeight: 700,
+    src: `local('Montserrat'), local('Montserrat'), url(/fonts/Montserrat-Bold.ttf) format('opentype')`,
+    font: '/fonts/Montserrat-Bold.ttf',
+    type: 'opentype',
+  },
+] as const;
