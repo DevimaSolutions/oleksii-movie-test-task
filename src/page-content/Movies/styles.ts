@@ -6,6 +6,7 @@ const styles = {
     flexDirection: 'column',
     width: 'inherit',
     height: 'inherit',
+    flex: 1,
   },
   pagination: {
     display: 'flex',
@@ -23,12 +24,13 @@ const styles = {
     gap: theme.spacing(7),
     width: '100%',
     height: '100%',
+    flex: 1,
   },
   movieListWrapper: {
     display: 'flex',
     flexDirection: 'column',
-    width: 'inherit',
-    height: 'inherit',
+    width: '100%',
+    height: '100%',
     paddingBottom: '110px',
   },
   cardsSpacing: {

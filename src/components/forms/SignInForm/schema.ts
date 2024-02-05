@@ -1,7 +1,9 @@
-import { boolean, object, string } from 'yup';
+import { boolean, object } from 'yup';
+
+import { emailSchema, passwordSchema } from '@/validation-schemas';
 
 export const schema = object({
-  email: string().trim().required(),
-  password: string().trim().required(),
   rememberMe: boolean().optional(),
-}).required();
+})
+  .concat(emailSchema)
+  .concat(passwordSchema);

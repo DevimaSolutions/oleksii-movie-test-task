@@ -10,7 +10,6 @@ import useMovies from './useMovies';
 
 const Movies = () => {
   const {
-    isLoading,
     movies,
     pagesAmount,
     page,
@@ -21,10 +20,6 @@ const Movies = () => {
   } = useMovies();
 
   const content = useMemo(() => {
-    if (isLoading && !movies.length) {
-      // TODO return <div>loading...</div>;
-      return null;
-    }
     if (!movies.length) {
       return (
         <CenteredContainer>
@@ -56,19 +51,17 @@ const Movies = () => {
               </IconButton>
             }
             secondaryActionComponent={
-              <>
-                <Button
-                  disableFocusRipple
-                  disableRipple
-                  disableTouchRipple
-                  sx={styles.iconButton}
-                  onClick={handleLogout}
-                >
-                  <Typography sx={styles.logoutLabel}>Logout</Typography>
+              <Button
+                disableFocusRipple
+                disableRipple
+                disableTouchRipple
+                sx={styles.iconButton}
+                onClick={handleLogout}
+              >
+                <Typography sx={styles.logoutLabel}>Logout</Typography>
 
-                  <ExitIcon />
-                </Button>
-              </>
+                <ExitIcon />
+              </Button>
             }
           />
         </CenteredContainer>
@@ -77,7 +70,6 @@ const Movies = () => {
             {movies.map(({ id, ...movie }) => (
               <MovieCard key={id} onClick={handleMovieRedirect(id)} {...movie} />
             ))}
-            {/* TODO {isLoading && <div>loading2...</div>} */}
           </Box>
         </CenteredContainer>
         <CenteredContainer sx={combineSx(styles.container, styles.paginationSpacing)}>
@@ -101,7 +93,6 @@ const Movies = () => {
       </Box>
     );
   }, [
-    isLoading,
     movies,
     handleAddMovie,
     handleLogout,

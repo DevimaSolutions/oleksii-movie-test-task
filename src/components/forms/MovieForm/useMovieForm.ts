@@ -42,13 +42,13 @@ const useMovieForm = ({ movie }: IMovieFormProps) => {
           toast.success('Movie updated successfully', { toastId: 'updated-movie' });
           router.push(`/movies`);
         } else {
-          const response = await dispatch(
+          await dispatch(
             movieThunks.createMovie({
               ...values,
             }),
           ).unwrap();
           toast.success('Movie created successfully', { toastId: 'created-movie' });
-          router.push(`/movies/${response.id}`);
+          router.push(`/movies`);
         }
         setIsSubmitted(true);
       } catch (err: unknown) {

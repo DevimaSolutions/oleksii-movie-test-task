@@ -8,7 +8,7 @@ import useCreateMovie from './useCreateMovie';
 const CreateMovie = () => {
   const { handleBack } = useCreateMovie();
   return (
-    <Box sx={styles.root}>
+    <Box>
       <CenteredContainer sx={styles.container}>
         <ContentHeader
           mainTitle={'Create movie'}
