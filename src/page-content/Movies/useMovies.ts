@@ -3,6 +3,7 @@ import { useEffect, useCallback, useMemo } from 'react';
 
 import { useDispatch, useSelector } from '@/hooks';
 import { selectors as moviesSelectors, thunks as movieThunks } from '@/redux/movies';
+import { resetState } from '@/redux/movies/slice';
 import { getAuthManager } from '@/utils';
 
 const useMovies = () => {
@@ -37,6 +38,9 @@ const useMovies = () => {
 
   useEffect(() => {
     dispatch(movieThunks.getMovies({ page: 1, perPage: 8 }));
+    return () => {
+      dispatch(resetState());
+    };
   }, [dispatch]);
 
   return {

@@ -3,7 +3,8 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     width: 'inherit',
-    height: 'inherit',
+    height: '100%',
+    flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
     '& > div': {

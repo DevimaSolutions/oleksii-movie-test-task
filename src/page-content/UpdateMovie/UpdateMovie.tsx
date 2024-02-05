@@ -11,7 +11,7 @@ const UpdateMovie = ({ movieId }: IUpdateMovieProps) => {
   const { movie, handleBack } = useUpdateMovie({ movieId });
 
   return (
-    <Box sx={styles.root}>
+    <Box>
       <CenteredContainer sx={styles.container}>
         <ContentHeader
           mainTitle={'Update movie'}

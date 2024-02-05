@@ -3,6 +3,7 @@ import { useEffect, useCallback } from 'react';
 
 import { useDispatch, useSelector } from '@/hooks';
 import { selectors as moviesSelectors, thunks as movieThunks } from '@/redux/movies';
+import { resetState } from '@/redux/movies/slice';
 
 import type { IUpdateMovieProps } from './types';
 
@@ -19,6 +20,9 @@ const useUpdateMovie = ({ movieId }: IUpdateMovieProps) => {
 
   useEffect(() => {
     dispatch(movieThunks.getMovie({ movieId }));
+    return () => {
+      dispatch(resetState());
+    };
   }, [dispatch, movieId]);
 
   return { movie: selectedMovie, handleBack };

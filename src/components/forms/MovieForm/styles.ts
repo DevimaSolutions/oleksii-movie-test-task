@@ -3,9 +3,9 @@ import { theme } from '@/constants';
 const styles = {
   root: {
     display: 'flex',
-    flexDirection: 'row',
     gap: '128px',
     marginTop: theme.spacing(12),
+    flexDirection: 'row',
     width: '100%',
     height: '100%',
   },
@@ -14,12 +14,8 @@ const styles = {
     height: '100%',
   },
   dndWrapper: {
-    width: '100%',
-    height: '100%',
-    [theme.breakpoints.up('lg')]: {
-      width: '473px',
-      height: '504px',
-    },
+    width: '473px',
+    height: '504px',
   },
   formWrapper: {},
   fieldsWrapper: {

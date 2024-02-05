@@ -44,8 +44,6 @@ export const theme = createTheme({
           border: '1px solid #FFFFFF',
           padding: '15px',
         },
-        sizeMedium: {},
-        text: {},
       },
     },
     MuiContainer: {
@@ -68,16 +66,6 @@ export const theme = createTheme({
           backgroundColor: '#224957',
           border: 'none',
         },
-      },
-    },
-    MuiPagination: {
-      styleOverrides: {
-        root: {},
-      },
-    },
-    MuiInput: {
-      styleOverrides: {
-        root: {},
       },
     },
     MuiPaginationItem: {
